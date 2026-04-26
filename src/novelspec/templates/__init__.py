@@ -16,6 +16,7 @@ from novelspec.templates.style import (
     style_forbidden,
     style_conventions,
 )
+from novelspec.templates.rules import rules_quality_standards
 from novelspec.templates.state import (
     state_current_status,
     state_chapter_log,
@@ -44,6 +45,7 @@ __all__ = [
     "style_narrative_samples",
     "style_forbidden",
     "style_conventions",
+    "rules_quality_standards",
     "state_current_status",
     "state_chapter_log",
     "state_unresolved_threads",

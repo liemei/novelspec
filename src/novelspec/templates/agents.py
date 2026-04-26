@@ -35,6 +35,8 @@ novel/
 │   ├── narrative-samples.md      # 文风样本
 │   ├── forbidden.md              # 禁忌清单
 │   └── conventions.md            # 写作约定
+├── rules/                        # 创作质量准则
+│   └── quality-standards.md      # AI 必须遵循的九大创作规则
 ├── prompts/                      # Agent 工作指令
 │   ├── daily-write.md            # 每日创作
 │   ├── revise-chapter.md         # 修改章节

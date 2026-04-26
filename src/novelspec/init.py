@@ -28,6 +28,7 @@ SKELETON: dict[str, callable] = {
     "style/narrative-samples.md": tpl.style_narrative_samples,
     "style/forbidden.md": tpl.style_forbidden,
     "style/conventions.md": tpl.style_conventions,
+    "rules/quality-standards.md": tpl.rules_quality_standards,
     "prompts/daily-write.md": tpl.prompt_daily_write,
     "prompts/revise-chapter.md": tpl.prompt_revise_chapter,
     "prompts/audit-consistency.md": tpl.prompt_audit_consistency,

@@ -28,6 +28,7 @@ def prompt_daily_write() -> str:
    - 参考 style/narrative-samples.md 模仿文风
    - 人物对话符合 speech-patterns.md 中的说话方式
    - 遵守 style/forbidden.md 中的禁忌清单
+   - 遵循 rules/quality-standards.md 中的创作质量准则
 4. **更新 summary.md**：写完内容后，生成 300-500 字的章节概要
 5. **检查新埋点**：如果本章引入了新的伏笔，更新 foreshadowing.md
 6. **更新状态**：更新 state/ 下的所有文件
