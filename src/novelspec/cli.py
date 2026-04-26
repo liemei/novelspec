@@ -52,7 +52,7 @@ def main(argv: list[str] | None = None) -> int:
     )
 
     # --- status ---
-    status_parser = subparsers.add_parser("status", help="查看写作进度")
+    subparsers.add_parser("status", help="查看写作进度")
 
     # --- help ---
     subparsers.add_parser("help", help="显示帮助信息")

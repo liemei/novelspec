@@ -74,10 +74,10 @@ def run_init(target: Path, force: bool = False) -> None:
     (agents_dir / "novelspec.md").write_text(
         tpl.agent_claude_code(), encoding="utf-8"
     )
-    print(f"  ✓  .claude/skills/novelspec.md")
+    print("  ✓  .claude/skills/novelspec.md")
 
     print(
-        f"""
+        """
 ✅ NovelSpec 项目初始化完成！
 
 接下来：
