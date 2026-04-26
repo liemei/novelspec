@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "novelspec"
+version = "1.0.0"
+description = "Spec-driven long-form novel creation — Spec-first workflow for AI-assisted storytelling"
+authors = [{name = "NovelSpec Contributors"}]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["novel", "writing", "ai", "spec-driven", "storytelling", "openspec"]
+
+[project.scripts]
+novelspec = "novelspec.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
