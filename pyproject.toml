@@ -11,6 +11,7 @@ license = {text = "MIT"}
 readme = "README.md"
 requires-python = ">=3.10"
 keywords = ["novel", "writing", "ai", "spec-driven", "storytelling", "openspec"]
+dependencies = ["PyYAML>=6.0"]
 
 [project.scripts]
 novelspec = "novelspec.cli:main"
