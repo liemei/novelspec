@@ -6,6 +6,8 @@ Inspired by [OpenSpec](https://github.com/Fission-AI/OpenSpec) (spec-driven deve
 
 > **Agree on the world before you write a single word.**
 
+[简体中文版](README.zh-CN.md)
+
 ## Philosophy
 
 ```text
@@ -33,8 +35,12 @@ Inspired by [OpenSpec](https://github.com/Fission-AI/OpenSpec) (spec-driven deve
 ╔══════════════════════════════════════════════════════╗
 ║              WRITING PHASE                           ║
 ║                                                       ║
-║   /novel:write → review → /novel:revise → continue    ║
-║                                                       ║
+║   /novel:write → /novel:review → /novel:revise       ║
+║        │              │                │             ║
+║        │         (reader review)   (fix issues)       ║
+║        │              └── re-review after fix ───────╡
+║        │                                            │
+║        └──────────→ continue to next chapter ───────╡
 ╚══════════════════════════════════════════════════════╝
          │               │                  │
          ▼               ▼                  ▼
@@ -64,6 +70,41 @@ cd my-novel
 # /novel:write       →  start writing chapters
 ```
 
+## Reader Review System (v1.2.0+)
+
+After writing a chapter or creating an outline, NovelSpec can review your work from a **reader's perspective** — catching logical flaws, character IQ issues, pacing problems, and emotional disconnects before you move on.
+
+### Six-Dimension Review
+
+| Dimension | What It Checks |
+|-----------|---------------|
+| 🧠 Reasonableness | Does the character act according to their personality and situation? Are cause-and-effect chains logical? |
+| 🎯 Character IQ | Any "plot-induced stupidity"? Do decisions match the character's intelligence level? |
+| 📖 Storyline Consistency | Does this chapter align with the plot direction? Is the pacing right for the current story phase? |
+| 💔 Emotional Resonance | Will the reader actually feel something? Or is it forced drama? |
+| 📄 Reading Experience | Does the chapter have a hook at the end? Any skippable passages? Info density right? |
+| 🗣️ Dialogue & Behavior | Would this person really say/do this in this situation? |
+
+### Review Commands
+
+| Command | What It Does |
+|---------|-------------|
+| `/novel:review ch-NNN` | Review a single chapter |
+| `/novel:review recent N` | Batch review last N chapters |
+| `/novel:review outline part-XX` | Review a part's outline before writing |
+| `/novel:review plot` | Review the overall plot framework |
+| `/novel:review all` | Comprehensive review of everything |
+
+### Review → Revise → Re-review Loop
+
+```
+/novel:review ch-003   →  Report: 2 critical issues found
+/novel:revise ch-003   →  Fix: adjust character decision
+/novel:review ch-003   →  Confirm: both issues resolved ✓
+```
+
+Review reports are saved to `chapters/part-XX/ch-NNN/reviews/` for future reference.
+
 ## Project Structure
 
 ```
@@ -73,28 +114,36 @@ my-novel/
 ├── characters/                     # Character profiles
 ├── plot/                           # Plot, outlines, foreshadowing
 ├── style/                          # Narrative style guide
+├── rules/                          # Quality standards
 ├── prompts/                        # Agent working instructions
+│   └── reader-review.md            # Reader review instructions
 ├── state/                          # Writing progress tracker
 ├── chapters/                       # Chapter drafts
+│   └── part-XX/ch-NNN/
+│       ├── summary.md              # Chapter summary
+│       ├── content.md              # Full chapter text
+│       ├── revisions/              # Version history
+│       └── reviews/                # Reader review reports
 ├── framework/                      # Framework change proposals
 └── meta/                           # Changelog
 ```
 
 ## Slash Commands
 
-| Command | Purpose |
-|---------|---------|
-| `/novel:init` | Initialize a new novel project |
-| `/novel:worldbuild` | Generate world framework from your materials |
-| `/novel:outline` | Create chapter outlines per part |
-| `/novel:write` | Write the next chapter |
-| `/novel:show` | Read written content |
-| `/novel:revise` | Revise a chapter (auto-saves history) |
-| `/novel:propose` | Propose a framework change |
-| `/novel:accept` | Accept and apply a framework change |
-| `/novel:archive` | Archive completed proposals |
-| `/novel:audit` | Consistency audit |
-| `/novel:status` | Show writing progress |
+| Command | Purpose | Auto-Review |
+|---------|---------|-------------|
+| `/novel:init` | Initialize a new novel project | — |
+| `/novel:worldbuild` | Generate world framework from your materials | — |
+| `/novel:outline` | Create chapter outlines per part | ✅ suggests review |
+| `/novel:write` | Write the next chapter | ✅ suggests review |
+| `/novel:show` | Read written content | — |
+| `/novel:revise` | Revise a chapter (auto-saves history) | — |
+| `/novel:review` | Review from reader's perspective (5 modes) | ★ core feature |
+| `/novel:propose` | Propose a framework change | — |
+| `/novel:accept` | Accept and apply a framework change | — |
+| `/novel:archive` | Archive completed proposals | — |
+| `/novel:audit` | Consistency audit (foreshadowing, timeline) | — |
+| `/novel:status` | Show writing progress | — |
 
 ## Three-Level Storage
 
