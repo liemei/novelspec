@@ -34,6 +34,7 @@ SKELETON: dict[str, callable] = {
     "prompts/audit-consistency.md": tpl.prompt_audit_consistency,
     "prompts/worldbuild.md": tpl.prompt_worldbuild,
     "prompts/outline.md": tpl.prompt_outline,
+    "prompts/reader-review.md": tpl.prompt_reader_review,
     "prompts/propose-framework.md": tpl.prompt_propose_framework,
     "state/current-status.md": tpl.state_current_status,
     "state/chapter-log.md": tpl.state_chapter_log,
@@ -88,6 +89,7 @@ def run_init(target: Path, force: bool = False) -> None:
 
 参考命令:
   /novel:status       查看进度
+  /novel:review       读者视角审阅（章节/大纲/框架）
   /novel:help         所有可用命令
 """
     )

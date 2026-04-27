@@ -28,6 +28,7 @@ from novelspec.templates.prompts import (
     prompt_audit_consistency,
     prompt_worldbuild,
     prompt_outline,
+    prompt_reader_review,
     prompt_propose_framework,
 )
 from novelspec.templates.agents import agent_claude_code
@@ -54,6 +55,7 @@ __all__ = [
     "prompt_audit_consistency",
     "prompt_worldbuild",
     "prompt_outline",
+    "prompt_reader_review",
     "prompt_propose_framework",
     "agent_claude_code",
 ]

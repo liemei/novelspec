@@ -14,4 +14,4 @@ Commands:
     novelspec help     — Show this message
 """
 
-__version__ = "1.1.0"
+__version__ = "1.2.0"

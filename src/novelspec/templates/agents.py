@@ -43,7 +43,8 @@ novel/
 │   ├── audit-consistency.md      # 一致性审计
 │   ├── worldbuild.md             # 框架构建
 │   ├── outline.md                # 大纲创作
-│   └── propose-framework.md      # 框架变更
+│   ├── propose-framework.md      # 框架变更
+│   └── reader-review.md          # 读者视角审阅
 ├── state/                        # 状态追踪
 │   ├── current-status.md         # 进度
 │   ├── chapter-log.md            # 章节索引
@@ -53,7 +54,8 @@ novel/
 │       └── ch-NNN/
 │           ├── summary.md        # 概要（供上下文）
 │           ├── content.md        # 正文
-│           └── revisions/        # 历史版本
+│           ├── revisions/        # 历史版本
+│           └── reviews/          # 读者视角审阅报告
 ├── framework/                    # 框架迭代
 │   ├── <提案名>/                 # 当前提案
 │   │   ├── proposal.md
@@ -92,6 +94,11 @@ framework/ 管理框架变更，含 proposal.md 和 archive/
 - `/novel:show ch-NNN summary` — 只看概要
 - `/novel:show --recent N` — 看最近 N 章概要
 - `/novel:revise ch-NNN 修改内容` — 修改章节（自动保存旧版本）
+- `/novel:review ch-NNN` — 读者视角审阅单章（根据 prompts/reader-review.md 的指令）
+- `/novel:review recent N` — 批量审阅最近 N 章
+- `/novel:review outline part-XX` — 大纲审阅
+- `/novel:review plot` — 剧情框架审阅
+- `/novel:review all` — 综合审阅
 
 ### 框架迭代
 - `/novel:propose 提案内容` — 提出框架变更

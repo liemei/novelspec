@@ -109,6 +109,7 @@ SLASH COMMANDS (in AI chat)
     /novel:write        创作章节
     /novel:show         阅读已写内容
     /novel:revise       修改章节
+    /novel:review       读者视角审阅（章节/大纲/框架）
     /novel:propose      提出框架变更
     /novel:accept       确认并应用框架变更
     /novel:archive      归档已完成变更
